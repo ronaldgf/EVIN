@@ -1,0 +1,136 @@
+<!--
+  Generated template for the NecesidadesRespuestaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="corpor">
+      <ion-buttons left>
+          <button ion-button icon-only (click)="goBack()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+    <ion-title>Necesidades de Respuesta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-item-group>
+        <ion-item-divider color="light">Necesidades más Urgentes</ion-item-divider>
+      </ion-item-group>
+      <ion-list>
+          
+            <ion-item>
+                <ion-grid item-content>
+                    <ion-row>
+                    <ion-col col-12>
+                        <ion-label floating>Sectores</ion-label>
+                                      <ion-select   #C (ionChange)="onChange(C.value)" >
+                                          <ion-option *ngFor="let sector of sectores"   [value]="sector.ID">{{sector.NOMBRE}}</ion-option>                      
+                                        </ion-select>
+                    </ion-col>
+                    </ion-row>
+                </ion-grid>
+              </ion-item>
+              <ion-item>
+                  <ion-grid item-content>
+                      <ion-row>
+                      <ion-col col-12>
+                 <ion-label floating>Cantidad</ion-label>
+                 <ion-input   type="number"  min="0" [(ngModel)]="cantidadS"   [value]="cantidadS"></ion-input>
+                      </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </ion-item>
+              <div padding>
+                  <button ion-button color="secondary" (click)="agregar()" ion-left block><ion-icon name="md-add"></ion-icon> Agregar</button>
+                </div>
+      </ion-list>
+      <ion-item-group>
+          <ion-item-divider color="light">Sectores Agregados</ion-item-divider>
+        </ion-item-group>
+      <ion-list>
+          
+            <ion-item *ngFor="let sectoragregado of sectoresAgregados;let i=index;" >
+                <ion-grid item-content>
+                    <ion-row *ngIf="sectoragregado.cantidad>0">
+                    <ion-col col-8>
+                      {{sectoragregado.cantidad}} {{sectoragregado.nombre}}
+                    </ion-col>
+                    <ion-col col-4>
+                        <button ion-fab color="danger" class="btAddRemove selectTogle" (click)="deleteDetalle(i)" item-end ><ion-icon name="remove"></ion-icon></button>
+                        
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+            </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item>
+              <ion-grid item-content>
+                  <ion-row>
+                  <ion-col col-12>
+             <ion-label floating>Número de Hogares</ion-label>
+             <ion-input   type="number"  min="0" [(ngModel)]="NUMEROHOGARES"   [value]="cantidad"></ion-input>
+                  </ion-col>
+                  </ion-row>
+              </ion-grid>
+          </ion-item>
+          <ion-item>
+              <ion-grid item-content>
+                  <ion-row>
+                  <ion-col col-12>
+             <ion-label floating>Especificaciones (¿Para cuántos días/tipos)</ion-label>
+             <ion-input   type="number" [(ngModel)]="DIAS"  min="0"    [value]="cantidad"></ion-input>
+                  </ion-col>
+                  </ion-row>
+              </ion-grid>
+          </ion-item>
+      </ion-list>
+      <ion-item-group>
+          <ion-item-divider color="light">Necesidades Urgentes de Recurso Humano (Seleccione según correspona)</ion-item-divider>
+        </ion-item-group>
+        <ion-list>
+            
+              <ion-item *ngFor="let necesidadUrg of necesidadesUrg">
+                  <ion-grid item-content>
+                      <ion-row>
+                      <ion-col col-8>
+                  {{necesidadUrg.NOMBRE}}
+                  
+                      </ion-col>
+                      <ion-col col-4>
+                          <ion-toggle class="selectTogle" id="{{necesidadUrg.id}}" [(ngModel)]="necesidadUrg.ESTADOSEL"  color="corpor" checked="false"></ion-toggle>
+                      </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </ion-item>
+        </ion-list>
+        <ion-item-group>
+            <ion-item-divider color="light">Necesidades de Recuperación Temprana (Seleccione según correspona)</ion-item-divider>
+          </ion-item-group>
+          <ion-list>
+              
+                <ion-item *ngFor="let necesidadesRecup of necesidadesRecuperacionTemprana">
+                    <ion-grid item-content>
+                        <ion-row>
+                            <ion-col col-8>
+                    {{necesidadesRecup.NOMBRE}}
+                            </ion-col>
+                            <ion-col col-4>
+                    <ion-toggle class="selectTogle" id="{{necesidadesRecup.id}}" [(ngModel)]="necesidadesRecup.ESTADOSEL"  color="corpor" checked="false"></ion-toggle>
+                  </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+          </ion-list>
+          <div padding>
+              <button ion-button color="primary" (click)="guardar()" type="submit"   icon-end block>
+                 Guardar
+                </button>
+            </div>
+</ion-content>

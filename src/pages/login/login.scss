@@ -1,0 +1,61 @@
+page-login {
+
+}
+.contenedor {
+    position: relative;
+ }
+  
+ .imagen {
+    // width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    // src: url(../assets/icon.png) !important;
+ }
+ .iconlogin{
+     color: #C62828 !important;
+ }
+.toolbar-background {
+    
+        background-repeat: repeat-x;background-image: -webkit-gradient(linear, left 0%, left 100%, from(#FF0000), to(#FF5100));
+        background-image: -webkit-linear-gradient(top, #C62828, 0%, #C62828, 100%);
+        background-image: -moz-linear-gradient(top, #C62828 0%, #C62828 100%);
+        background-image: linear-gradient(to bottom, #C62828 50%, #C62828 75%);
+        //  background-image: url("../assets/login.png");
+        // background:radial-gradient(200px top, ellipse, white, #1162ac, black);
+         background-repeat: repeat-x;
+        // background-image: url("http://i66.tinypic.com/v6htsz.jpg");
+    // height: 600px;
+    /* Nos aseguramos que la imagen de fondo este centrada vertical y
+06
+    horizontalmente en todo momento */
+
+ background-position: center center;
+
+/* La imagen de fondo no se repite */
+
+background-repeat: no-repeat;
+
+
+
+// /* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando
+// 13
+//    la altura del contenido supere la altura de la imagen. */
+
+//  background-attachment: fixed;
+
+// /* La imagen de fondo se reescala cuando se cambia el ancho de ventana
+// 17
+//    del navegador */
+
+  background-size: cover;
+
+
+
+/* Fijamos un color de fondo para que se muestre mientras se está
+21
+  cargando la imagen de fondo o si hay problemas para cargarla  */
+
+background-color: #464646;
+
+    }

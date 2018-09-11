@@ -1,0 +1,62 @@
+<!--
+  Generated template for the ModalPoblacionImpactadaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    
+      <ion-navbar color="corpor">
+        <ion-title>{{title}}</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    
+    <ion-content>
+        <ion-item-group *ngIf="poblacionCat.ACTIVACATPRINCIPALES">
+            <ion-item-divider color="light">Adultos (15 años o mayor)</ion-item-divider>
+          </ion-item-group>
+          <ion-list>
+              
+                <ion-item *ngIf="poblacionCat.ACTIVACATPRINCIPALES">
+                    <ion-label floating>Hombres</ion-label>
+                    <ion-input  type="number" value="0" min="0"  (change)="sumar()" [(ngModel)]="detalleNeceEspe.HOMBRES"   value=""></ion-input>
+                  </ion-item>
+                  <ion-item *ngIf="poblacionCat.ACTIVACATPRINCIPALES">
+                      <ion-label floating>Mujeres</ion-label>
+                      <ion-input  type="number" value="0"  min="0" (change)="sumar()" [(ngModel)]="detalleNeceEspe.MUJERES"   value=""></ion-input>
+                    </ion-item>
+                    <ion-item *ngIf="poblacionCat.ESPECIFICA">
+                      <ion-label floating>{{poblacionCat.NOMBRE}}</ion-label>
+                      <ion-input  type="Text" [(ngModel)]="detalleNeceEspe.ETNIA"    value=""></ion-input>
+                    </ion-item>
+          </ion-list>
+          <!-- <ion-item-group>
+              <ion-item-divider color="light">Niños (0 a 14 años)</ion-item-divider>
+            </ion-item-group>
+          <ion-list>
+            <ion-item>
+                <ion-label floating>Niños</ion-label>
+                <ion-input  type="number" value="0" (change)="sumar()" min="0" (keyup)="keyup($event)" [(ngModel)]="detallepob.NINIOS"    value=""></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>Niñas</ion-label>
+                  <ion-input  type="number" value="0" (change)="sumar()" min="0" (keyup)="keyup($event)"  [(ngModel)]="detallepob.NINIAS"  value=""></ion-input>
+                </ion-item>
+              </ion-list>
+                <ion-item-group>
+                    <ion-item-divider color="light">Número Total</ion-item-divider>
+                  </ion-item-group>-->
+                  <ion-list>
+                      <ion-item *ngIf="poblacionCat.ACTIVACATPRINCIPALES">
+                          <ion-label floating>Personas</ion-label>
+                          <ion-input  type="number" disabled value="0" min="0" [(ngModel)]="detalleNeceEspe.TOTAL"    value=""></ion-input>
+                        </ion-item> 
+                  </ion-list>
+                        
+                        <div padding>
+                            <button ion-button color="secondary" (click)="agregar()" ion-left block><ion-icon name="md-add"></ion-icon> Agregar</button>
+                          </div>
+    </ion-content>
+    

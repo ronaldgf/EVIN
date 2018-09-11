@@ -1,0 +1,107 @@
+<!--
+  Generated template for the UbicacionGeograficaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="corpor">
+      <ion-buttons left>
+          <button ion-button icon-only (click)="goBack()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+    <ion-title>Ubicación Geográfica</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+    <ion-list>
+        
+          <ion-item>
+            <ion-label floating>Provincia</ion-label>
+            <ion-input [disabled]="isDisabled" formControlName="provincia"  type="text" [(ngModel)]="ubicacion.provincia" value=""></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label floating>Cantón</ion-label>
+            <ion-input formControlName="ciudad" [(ngModel)]="ubicacion.canton"    value=""></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label  floating>Parroquia</ion-label>
+              <ion-input formControlName="parroquia" [(ngModel)]="ubicacion.parroquia"   value=""></ion-input>
+            </ion-item> 
+            <ion-item *ngIf="myForm.get('parroquia').errors && myForm.get('parroquia').dirty">
+              <p color="danger" ion-text *ngIf="myForm.get('parroquia').hasError('required')">Parroquia es requerido</p>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Tipo de Parroquia</ion-label>
+                <ion-select formControlName="tipoParroquia" [(ngModel)]="ubicacion.tipoParroquia"  interface="popover">
+                  <ion-option value="URB">Urbana</ion-option>
+                  <ion-option value="RUR">Rural</ion-option>
+                  
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>Sector/Dirección</ion-label>
+                  <ion-input [(ngModel)]="ubicacion.direccion" formControlName="direccion"   value=""></ion-input>
+                </ion-item> 
+                <ion-item>
+                    <ion-label floating>Distancia/Km</ion-label>
+                    <ion-input  type="number" [(ngModel)]="ubicacion.distancia" formControlName="distancia" value=""></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label floating>Tiempo Estimado/Min</ion-label>
+                      <ion-input  type="number" [(ngModel)]="ubicacion.tiempo" value="" formControlName="tiempo"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Punto de Referencia</ion-label>
+                        <ion-input  type="text" formControlName="punto" [(ngModel)]="ubicacion.punto" value=""></ion-input>
+                      </ion-item> 
+                     
+        </ion-list>
+        <ion-item-group>
+            <ion-item-divider color="light">Coordenadas</ion-item-divider>
+            <ion-item>
+                <ion-label floating>Latitud</ion-label>
+                <ion-input  type="text" [(ngModel)]="ubicacion.latitud" formControlName="latitud" value=""></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Longitud</ion-label>
+                <ion-input  type="text" [(ngModel)]="ubicacion.longitud" formControlName="longitud" value=""></ion-input>
+            </ion-item>
+            
+          </ion-item-group>  
+          
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Altitud/msnm</ion-label>
+            <ion-input  type="number"  [(ngModel)]="ubicacion.altitud" formControlName="altitud" value=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <button ion-fab color="danger" (click)="startListening(2)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+            <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+            <ion-label floating>Accesibilidad</ion-label>
+            <ion-textarea rows="6"  type="text" formControlName="accesibilidad" [(ngModel)]="ubicacion.accesibilidad"  value=""></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Zona</ion-label>
+            <ion-input  type="text"  [(ngModel)]="ubicacion.zona" formControlName="zona" value=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Distrito</ion-label>
+            <ion-input  type="text"  [(ngModel)]="ubicacion.distrito" formControlName="distrito" value=""></ion-input>
+          </ion-item>
+        </ion-list>
+              <div padding>
+                  <button ion-button color="primary" [disabled]="myForm.invalid"    type="submit"   icon-end block>
+                      Guardar
+                      
+                    </button>
+                </div>
+              </form>          
+</ion-content>

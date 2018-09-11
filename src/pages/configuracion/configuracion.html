@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Demo 109
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+    <ion-list> 
+      <ion-item>
+        <ion-label stacked>Name:</ion-label>
+        <ion-input formControlName="name" type="text" placeholder="name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.get('name').errors && myForm.get('name').dirty">
+        <p color="danger" ion-text *ngIf="myForm.get('name').hasError('required')">Field is required</p>
+      </ion-item>
+     
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="myForm.invalid">Guardar</button>
+    </div>
+  </form>
+</ion-content>

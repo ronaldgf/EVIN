@@ -1,0 +1,81 @@
+<!--
+  Generated template for the FechaTipoeventoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="corpor">
+      <ion-buttons left>
+          <button ion-button icon-only (click)="goBack()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+    <ion-title>Fecha y Tipo de Evento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <!-- <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>   -->
+  <ion-item-group>
+        <ion-item-divider color="light">Fecha Inicio/Evento</ion-item-divider>
+      </ion-item-group>
+      <ion-list>
+          
+            <ion-item >
+                <ion-label>Fecha</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="event.month" ></ion-datetime>
+              </ion-item>
+              <ion-item >
+                  <ion-label>Hora</ion-label>
+                  <ion-datetime display Format="hh:mm A" pickerFormat="hh:mm A" [(ngModel)]="event.timeStarts" ></ion-datetime>
+                </ion-item>
+      </ion-list>
+        <ion-item-group>
+          <ion-item-divider color="light">Evento Generador</ion-item-divider>
+        </ion-item-group>
+      
+  <ion-list>
+      
+        <ion-item *ngFor="let tipoevento of tipoeventos;let i= index;">
+            <ion-label>{{tipoevento.NOMBRE}}</ion-label>
+            <ion-toggle id="{{tipoevento.id}}" [(ngModel)]="tipoevento.ESTADOSEL"  color="corpor"  checked="false" (ionChange)="changeT(i)"></ion-toggle>
+          </ion-item>
+  </ion-list>
+  <ion-list>
+        <ion-item>
+          <button ion-fab color="danger" (click)="startListening(4)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+          <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+          <ion-label floating>Evento Generador</ion-label>
+          <ion-textarea rows="2"  type="text"    [(ngModel)]="fechatipoEvento.EVENTO_GENERADOR"  value=""></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <button ion-fab color="danger" (click)="startListening(1)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+            <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+            <ion-label floating>Descripción del Evento Adverso</ion-label>
+            <ion-textarea rows="6"  type="text"  [(ngModel)]="fechatipoEvento.DESCR_ADVERSO"  value=""></ion-textarea>
+          </ion-item>
+          <ion-item>
+              <button ion-fab color="danger" (click)="startListening(2)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+              <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+              <ion-label floating>Efectos Secundarios</ion-label>
+              <ion-textarea rows="6"   type="text" [(ngModel)]="fechatipoEvento.EFECTOS_SECUNDARIOS"  value=""></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <button ion-fab color="danger" (click)="startListening(3)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+                <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+                <ion-label floating>Posibles amenazas en el futuro cercano</ion-label>
+                <ion-textarea rows="6"  type="text"   [(ngModel)]="fechatipoEvento.POSIBLES_AMENAZAS"  value=""></ion-textarea>
+              </ion-item>
+  </ion-list>
+  <div padding>
+      <button ion-button color="primary"  (click)="saveData()"     icon-end block>
+          Guardar
+        
+        </button>
+    </div>
+  <!-- </form> -->
+</ion-content>

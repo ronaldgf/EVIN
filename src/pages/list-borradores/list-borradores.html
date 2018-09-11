@@ -1,0 +1,52 @@
+<!--
+  Generated template for the ListFormulariosRealizadosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+    <ion-toolbar color="corpor">
+        <ion-buttons left>
+            <button ion-button icon-only (click)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons start>
+            <ion-checkbox (ionChange)="checkall()" [(ngModel)]="checkallVar"   *ngIf="visiblecheck">Todo</ion-checkbox>
+            
+          </ion-buttons>
+      <ion-title>Formularios en Borrador</ion-title>
+      <ion-buttons end>
+          <button *ngIf="visiblecheck" (click)="eliminarBorradores()" ion-button icon-right color="royal">
+              Eliminar
+              
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    
+      
+    <ion-list>
+      <button ion-item (click)="pepa(formulario)" (press)="sel(i)"  *ngFor="let formulario of listUbicaciones;let i=index;" >
+        <!-- <ion-avatar item-start> -->
+            <!-- <img src="img/avatar-finn.png"> -->
+            <!-- <ion-icon name="folder"></ion-icon> -->
+            <!-- <img src="assets/folder.png"  /> -->
+            <ion-checkbox [(ngModel)]="formulario.selCheck" *ngIf="visiblecheck"></ion-checkbox>
+            <img [src]="imagess" style="background-color: transparent !important;" width="60" height="60" item-start />
+          <!-- </ion-avatar> -->
+          <h2>Borrador {{formulario.idJson}}</h2>
+          <!-- <p style="padding-top: 5px;">{{formulario.provincia}}</p>
+          <p style="padding-top: 5px;">{{formulario.canton}}</p> -->
+          
+          <!-- <h3>Don't Know What To Do!</h3>
+          <p>I've had a pretty messed up day. If we just...</p> -->
+      </button>
+    </ion-list>
+  </ion-content>
+  

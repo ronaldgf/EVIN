@@ -1,0 +1,102 @@
+<!--
+  Generated template for the SituacionAyudaHumanitariaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar
+    color="corpor">
+    <ion-buttons left>
+            <button ion-button icon-only (click)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+    <ion-title>Situación de Ayuda Huminataria</ion-title>
+    </ion-navbar>
+    
+</ion-header>
+
+
+<ion-content>
+        <ion-item-group>
+                <ion-item-divider color="light">Organizaciones de Socorro/Desarrollo que están funcionando en la Comunidad</ion-item-divider>
+              </ion-item-group>
+        <ion-list>
+                
+                  <ion-item *ngFor="let organizacion of organizaciones">
+                        <ion-grid item-content>
+                                <ion-row>
+                                        <ion-col col-8>{{organizacion.NOMBRE}}
+                                                <p>Sector de la Interv.: {{organizacion.SECTORES}}</p>
+                                        </ion-col>
+                                        
+                                        <ion-col col-4>  <ion-select placeholder="Sectores"  class="selectTogle" #C (ionChange)="onChange(C.value,organizacion)"   multiple>
+                                                <ion-option *ngFor="let sector of sectores"   [value]="sector.ID">{{sector.NOMBRE}}</ion-option>                      
+                                              </ion-select>
+                                              <button ion-fab color="danger" class="btAddRemove selectTogle" (click)="deleteDetalle(organizacion)" item-end *ngIf="organizacion.EXISTESECTORES"><ion-icon name="remove"></ion-icon></button>
+                                            </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                    <ion-col col-8>
+                                            
+                                    </ion-col>
+                                    <ion-col col-4></ion-col>
+                                </ion-row>
+                                
+                                
+                   
+                    </ion-grid>
+                      <!-- <ion-label class="align" *ngIf="medio.ESPECIFICA"> {{medio.ESPECIFICACION}}</ion-label> -->
+                      <!-- <ion-toggle   color="corpor" checked="false"></ion-toggle> -->
+                    
+                          <!-- <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button> -->
+                         
+                          <!-- <button ion-fab color="danger" (click)="irUbicacion()">DAtePicker</button> -->
+                     
+                    </ion-item>
+                    <ion-item>
+                            <button ion-fab color="danger" (click)="startListening(2)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+                            <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+                        <ion-label floating>Observaciones</ion-label>
+                        <ion-textarea rows="6" [(ngModel)]="observaciones"></ion-textarea>
+                    </ion-item>
+            </ion-list>
+            <ion-item-group>
+                    <ion-item-divider color="light">Acciones de Respuesta realizadas hasta el momento <button ion-fab color="secondary"  (click)="openModal()" item-end ><ion-icon name="add"></ion-icon></button></ion-item-divider>
+                  </ion-item-group>
+                  <ion-list *ngIf="TIENEDATOS">
+                        <ion-item>
+                        <ion-grid>
+                              <ion-row >
+                                    <ion-col col-3>
+                                    </ion-col>
+                                    <ion-col col-4>
+                                          <h1 text-uppercase no-padding no-margin class="sizeTextSit">No existen Acciones de Respuesta</h1>
+                                          <!-- <horizontalrule></horizontalrule>
+                                          <h3 no-padding no-margin>Username</h3> -->
+                                    </ion-col>
+
+                                    <ion-col col-4>
+                                        </ion-col>
+                              </ion-row>
+                        </ion-grid>
+                    </ion-item>
+                       </ion-list>
+                       <ion-list>
+                            <ion-item *ngFor="let accion of acciones;let i= index;">
+                                    <ion-label>{{accion.ORGANIZACION}}</ion-label>
+                                    <!-- <ion-toggle   color="corpor" checked="false"></ion-toggle> -->
+                                  
+                                        <!-- <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button> -->
+                                        <button ion-fab color="danger" (click)="openModalEditar(i)" class="btAddRemove" item-end><ion-icon name="add"></ion-icon></button>
+                                        <button ion-fab color="danger" class="btAddRemove" (click)="deleteAccion(i)" item-end *ngIf="accion.ESTADOAGREGADO"><ion-icon name="remove"></ion-icon></button>
+                            </ion-item>
+                       </ion-list>
+            <div padding>
+                    <button ion-button color="primary" (click)="guardar()" type="submit"   icon-end block>
+                        Guardar
+                        
+                      </button>
+                  </div>
+</ion-content>

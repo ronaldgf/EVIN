@@ -1,0 +1,51 @@
+<!--
+  Generated template for the MedioTransportePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+    <ion-navbar color="corpor">
+        <ion-buttons left>
+            <button ion-button icon-only (click)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+      <ion-title>Accesibilidad</ion-title>
+    </ion-navbar>
+</ion-header>
+    <ion-content >
+            <ion-item-group>
+                    <ion-item-divider color="light">Especifique el medio y tipo más adecuado para llegar a la zona afectada</ion-item-divider>
+                  </ion-item-group>
+        <ion-item-group>
+            <ion-item-divider color="light">Medios de Transporte</ion-item-divider>
+          </ion-item-group>
+        <ion-list radio-group>
+            <ion-item *ngFor="let medio of medios; let i= index;">
+              <ion-label>{{medio.NOMBRE}}</ion-label>
+              <ion-radio  value="{{medio.NOMBRE}}"  color="corpor" (ionSelect)="select(i)"  checked="{{medio.ESTADOSEL}}"> </ion-radio>
+            </ion-item>
+           
+          </ion-list> 
+          <ion-item-group>
+              <ion-item-divider color="light">Especifique tipos de Transporte</ion-item-divider>
+            </ion-item-group>
+            <ion-list>
+                <ion-item>
+                    <!-- <ion-label floating>Transporte</ion-label> -->
+                    <ion-label>Tipos de Transporte</ion-label>
+                    <ion-select  [(ngModel)]="gender" multiple>
+                      <ion-option *ngFor="let tipoCat of tiposCat" value="{{tipoCat.ID}}">{{tipoCat.NOMBRE}}</ion-option>                      
+                    </ion-select>
+
+                  </ion-item>
+            </ion-list>
+            <div padding>
+                    <button ion-button color="primary" (click)="guardar()" type="submit"   icon-end block>
+                        Guardar
+                        <!-- <ion-icon name='md-arrow-round-forward' is-active="false"></ion-icon> -->
+                      </button>
+                  </div>
+    </ion-content>

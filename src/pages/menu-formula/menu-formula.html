@@ -1,0 +1,37 @@
+<ion-header>
+    
+    
+    
+    <ion-navbar
+    color="corpor">
+    <ion-buttons left>
+            <button ion-button icon-only (click)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+    <ion-title>Menu de Formularios</ion-title>
+    
+    </ion-navbar>
+    
+</ion-header>    
+<ion-content
+class="grid-full">
+
+
+<ion-row
+wrap >
+
+<ion-col (click)="openPage(item.COMPONENTE)" class="cell-1" width-33 *ngFor="let item of listmenuFormularios">
+<ion-icon  class="icons" name="{{item.ICONO}}"></ion-icon>
+<p class="custom">{{item.NOMBRE}}</p>
+</ion-col>
+</ion-row>
+<!-- <ion-input  [(ngModel)]="pepa"    value=""></ion-input> -->
+<!-- <h2>Formularios Pendientes de envío: {{countF}}</h2> -->
+<ion-fab right bottom>
+    
+      <button ion-fab color="alternative" (click)="guardarBase()"><ion-icon name="send"></ion-icon></button>
+    
+    </ion-fab>
+    
+</ion-content>

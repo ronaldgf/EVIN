@@ -1,0 +1,129 @@
+<!--
+  Generated template for the DatosInformDaniosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+    <ion-navbar color="corpor">
+        <ion-buttons left>
+            <button ion-button icon-only (click)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+      <ion-title>Datos Informe de Daños</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+<ion-content >
+  <ion-item-group>
+    <ion-item-divider color="light">Afectación de la Población</ion-item-divider>
+  </ion-item-group>
+  <ion-list>
+    <ion-item>
+      <button ion-fab color="danger" (click)="startListening(1)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+      <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+      <ion-label floating>1.Características</ion-label>
+      <ion-textarea   type="text" style="height: auto;"    [(ngModel)]="AFECTACION_CARACTERISTICA"  value=""></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-item-group>
+    <ion-item-divider color="light">Efectos Adversos</ion-item-divider>
+  </ion-item-group>
+  <ion-list>
+    <ion-item>
+      <button ion-fab color="danger" (click)="startListening(2)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+      <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+      <ion-label floating>1.Sector Productivo</ion-label>
+      <ion-textarea   type="text"    [(ngModel)]="EFECTO_SECTORPROD"  value=""></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <button ion-fab color="danger" (click)="startListening(3)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+      <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+      <ion-label floating>2.Infraestructura</ion-label>
+      <ion-textarea  type="text"    [(ngModel)]="EFECTO_INFRAESTRUCTURA"  value=""></ion-textarea>
+    </ion-item>
+  </ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light">Medio de Vida de la Comunidad</ion-item-divider>
+    </ion-item-group>
+    <ion-list>
+      <ion-item>
+        <button ion-fab color="danger" (click)="startListening(4)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+        <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+        <ion-label floating>Especificar</ion-label>
+        <ion-textarea   type="text"    [(ngModel)]="MEDIOVIDACOMUNIDAD"  value=""></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-item-group>
+      <ion-item-divider color="light">Afectación a los Sectores de Salud y Alimentación</ion-item-divider>
+    </ion-item-group>
+    <ion-list>
+      <ion-item>
+        <button ion-fab color="danger" (click)="startListening(5)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+        <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+        <ion-label floating>1.Salud y Nutrición</ion-label>
+        <ion-textarea   type="text"    [(ngModel)]="AFECTACIONSECTORSALUDNUTRI"  value=""></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <button ion-fab color="danger" (click)="startListening(6)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+        <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+        <ion-label floating>2.Seguridad Alimentaria</ion-label>
+        <ion-textarea   type="text"    [(ngModel)]="AFECTACIONSECTORSEGURIDAD"  value=""></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light">Situación de Asistencia Humanitaria</ion-item-divider>
+    </ion-item-group>
+    <ion-list>
+      <ion-item>
+        <button ion-fab color="danger" (click)="startListening(7)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+        <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+        <ion-label floating>Especificar</ion-label>
+        <ion-textarea   type="text"    [(ngModel)]="SITUACIONAYUDAHUMAN"  value=""></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light">Conclusiones</ion-item-divider>
+    </ion-item-group>
+    <ion-list>
+      <ion-item>
+        <button ion-fab color="danger" (click)="startListening(8)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+        <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+        <ion-label floating>Especificar</ion-label>
+        <ion-textarea   type="text"    [(ngModel)]="CONCLUSIONES"  value=""></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light">Recomendaciones</ion-item-divider>
+    </ion-item-group>
+    <ion-list>
+      <ion-item>
+        <button ion-fab color="danger" (click)="startListening(9)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+        <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+        <ion-label floating>1.Necesidades Urgentes</ion-label>
+        <ion-textarea   type="text"    [(ngModel)]="NECESIDADSURGENTES"  value=""></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <button ion-fab color="danger" (click)="startListening(10)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+        <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+        <ion-label floating>2.Necesidades Urgentes de Recurso Humano</ion-label>
+        <ion-textarea   type="text"    [(ngModel)]="NECESIDADSURGENTESRRHH"  value=""></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <button ion-fab color="danger" (click)="startListening(11)" class="btAddRemove" item-end><ion-icon name="mic"></ion-icon></button>
+        <button ion-fab color="danger" (click)="stopListening()" *ngIf="isIos()" class="btAddRemove" item-end><ion-icon name="square"></ion-icon></button>
+        <ion-label floating>3.Recuperación Temprana</ion-label>
+        <ion-textarea   type="text"    [(ngModel)]="RECUPTEMPRANA"  value=""></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button color="primary" (click)="guardar()"    icon-end block>
+          Guardar
+          
+        </button>
+    </div>
+</ion-content>
